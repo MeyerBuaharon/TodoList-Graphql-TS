@@ -1,11 +1,18 @@
 import * as React from "react";
 
-const LogoutBtn = () => (
+const LogoutBtn = ({
+  setIsLogin,
+  setIsLoggedin,
+}: {
+  setIsLogin(): any;
+  setIsLoggedin(): any;
+}) => (
   <button
     id="qsLogoutBtn"
     className="btn-margin logoutBtn"
     onClick={() => {
-      logoutHandler();
+      setIsLogin(false);
+      setIsLoggedin(false);
     }}
   >
     Log Out
