@@ -5,16 +5,15 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 import { WebSocketLink } from "apollo-link-ws";
 import { ApolloProvider } from "@apollo/react-hooks";
 
-import Header from "./Header";
 import TodoPrivateWrapper from "./Todo/TodoPrivateWrapper";
 import TodoPublicWrapper from "./Todo/TodoPublicWrapper";
-
-import { useAuth0 } from "./Auth/react-auth0-spa";
+import OnlineUsersWrapper from "./OnlineUsers/OnlineUsersWrapper";
+import Header from "./Header";
 
 const createApolloClient = () => {
   return new ApolloClient({
     link: new WebSocketLink({
-      uri: "wss://hasura.io/learn/graphql",
+      uri: "wss://todoslist.hasura.app/v1/graphql",
       options: {
         reconnect: true,
       },
@@ -23,12 +22,8 @@ const createApolloClient = () => {
   });
 };
 
-const App = ({ idToken }: { idToken: string }) => {
-  const { loading, logout } = useAuth0();
-  if (loading || !idToken) {
-    return <div>Loading...</div>;
-  }
-  const client = createApolloClient(idToken);
+const App = () => {
+  const client = createApolloClient();
   return (
     <ApolloProvider client={client}>
       <div>
@@ -40,6 +35,11 @@ const App = ({ idToken }: { idToken: string }) => {
             </div>
             <div className="col-xs-12 col-md-6 sliderMenu p-30 bg-gray border-right">
               <TodoPublicWrapper />
+            </div>
+          </div>
+          <div className="col-xs-12 col-md-3 p-left-right-0">
+            <div className="col-xs-12 col-md-12 sliderMenu p-30 bg-gray">
+              <OnlineUsersWrapper />
             </div>
           </div>
         </div>

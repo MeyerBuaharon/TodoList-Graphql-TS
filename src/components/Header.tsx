@@ -1,10 +1,12 @@
 import * as React from "react";
+import LoginBtn from "./Auth/LoginBtn";
 import LogoutBtn from "./Auth/LogoutBtn";
 
-const Header = ({ logoutHandler }: { logoutHandler: VoidFunction }) => (
+const Header = () => (
   <nav className="m-bottom-0 topNav">
     GraphQL Todo List App
-    <LogoutBtn logoutHandler={logoutHandler} />
+    <LogoutBtn />
+    <LoginBtn />
   </nav>
 );
 

@@ -1,9 +1,9 @@
 import * as React from "react";
 
-const LogoutBtn = () => (
+const LoginBtn = () => (
   <button
-    id="qsLogoutBtn"
-    className="btn-margin logoutBtn"
+    id="qsLoginBtn"
+    className="btn-margin LoginBtn"
     onClick={() => {
       logoutHandler();
     }}
@@ -12,4 +12,4 @@ const LogoutBtn = () => (
   </button>
 );
 
-export default LogoutBtn;
+export default LoginBtn;

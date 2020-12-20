@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import createAuth0Client from "@auth0/auth0-spa-js";
 import Auth0Client from "@auth0/auth0-spa-js/dist/typings/Auth0Client";
 import Callback from "./Callback";
-import Login from "./Login";
+import Login from "./LoginBtn";
 import App from "../App";
 
 interface Auth0Context {
